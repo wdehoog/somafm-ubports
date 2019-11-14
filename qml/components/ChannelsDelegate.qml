@@ -16,14 +16,12 @@ import Ubuntu.Components 1.3
         {
             id: thumb
             source: channelImage
-            sourceSize.height: Theme.itemSizeExtraLarge - Theme.paddingSmall
-            sourceSize.width: Theme.itemSizeExtraLarge - Theme.paddingSmall
             asynchronous: true
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: Theme.paddingSmall
-            width: Theme.itemSizeExtraLarge - Theme.paddingSmall
-            height: Theme.itemSizeExtraLarge - Theme.paddingSmall
+            width: units.gu(10)
+            height: width
         }
 
         Column

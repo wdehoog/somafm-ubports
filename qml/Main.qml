@@ -51,15 +51,22 @@ MainView {
             ]
         }
 
+        Component.onCompleted: {
+          console.log("Component.onCompleted")
+          listView.model = channelsModel
+        }
+
         ListView {
             id: listView
             anchors.fill: parent
             spacing: units.dp(8)
-            model: channelsModel
+            //model: channelsModel
             interactive: contentHeight > height
             delegate: ChannelsDelegate {
                 onClicked: {
                     channelImageUrl = model.channelImage
+                    streamMetaText1 = model.channelName + ": " + model.channelDj
+                    streamMetaText2 = model.channelDescription
                     loadStation(model.songUrlFast)
                 }
             }
@@ -70,8 +77,8 @@ MainView {
     PlayerArea {
         id: playerArea
         height: visible ? childrenRect.height : 0
-        visible: pageStack.currentPage.objectName !== "AboutPage"
-                 && pageStack.currentPage.objectName !== "HelpPage"
+        //visible: pageStack.currentPage.objectName !== "AboutPage"
+        //         && pageStack.currentPage.objectName !== "HelpPage"
     }
 
     Connections {
@@ -103,11 +110,6 @@ MainView {
         }
     }
 
-    function reload() {
-        //showBusy = true
-        channelsModel.reload()
-    }
-
     function playPause() {
         console.log("pause() audio.source:" + audio.source)
         if(audio.playbackState === Audio.PlayingState)
@@ -116,6 +118,28 @@ MainView {
           audio.play()
     }
     
+    function reload() {
+        /*loadChannels("http://api.somafm.com/channels.xml", function(channels) {
+            channelsModel.xml = channels
+        })*/
+        channelsModel.reload()
+    }
+
+    /*function loadChannels(channelsUri, callback) {
+        var xhr = new XMLHttpRequest
+        xhr.open("GET", channelsUri)
+        xhr.setRequestHeader("Content-Type", "text/xml");
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === XMLHttpRequest.DONE) {
+                var channels = xhr.responseText
+                console.log("loadChannels() DONE length: " + channels.length)
+                console.log("Error status: " + xhr.status + ", text: " + xhr.statusText)
+                callback(channels)  
+            }
+        }
+        xhr.send();
+    }*/
+
     function loadStation(playlistUri) {
 
         var xhr = new XMLHttpRequest

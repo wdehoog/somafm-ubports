@@ -1,6 +1,6 @@
 # SomaFM
 
-A short description of your app]: Plays SomaFM audio streams
+Plays SomaFM audio streams
 
 ## License
 

@@ -4,7 +4,7 @@ import QtQuick.XmlListModel 2.0
 XmlListModel
 {
     id: xmlModel
-    source: "http://somafm.com/channels.xml"
+    source: "http://api.somafm.com/channels.xml"
     query: "/channels/channel"
 
     XmlRole { name: "channelId"; query: "@id/string()" }
@@ -16,4 +16,8 @@ XmlListModel
     XmlRole { name: "channelDj"; query: "dj/string()" }
     XmlRole { name: "channelListeners"; query: "listeners/string()" }
     XmlRole { name: "songUrlFast"; query: "fastpls[1]/string()" }
+
+    onStatusChanged: {
+        console.log("XmlListModel status: " + status + ", error: " + errorString())
+    }
 }
