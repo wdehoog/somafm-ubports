@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: somafm.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 21:14+0000\n"
+"POT-Creation-Date: 2019-11-14 21:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,19 @@ msgstr ""
 msgid "no title info"
 msgstr ""
 
-#: ../qml/Main.qml:29
+#: ../qml/Main.qml:30
 msgid "no publisher info"
 msgstr ""
 
-#: ../qml/Main.qml:48
+#: ../qml/Main.qml:57
+msgid "About"
+msgstr ""
+
+#: ../qml/Main.qml:62
 msgid "Reload"
 msgstr ""
 
-#: ../qml/Main.qml:186
+#: ../qml/Main.qml:201
 msgid "Error"
 msgstr ""
 

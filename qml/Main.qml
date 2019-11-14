@@ -26,10 +26,11 @@ MainView {
     property string channelImageUrl: ""
     property string channelStreamUrl: ""
     property string streamMetaText1: audio.metaData.title ? audio.metaData.title : i18n.tr("no title info")
+
     property string streamMetaText2: audio.metaData.publisher ? audio.metaData.publisher : i18n.tr("no publisher info")
 
-    Page {
-        id: page
+    PageStack {
+        id: pageStack
         anchors {
             bottom: playerArea.top
             fill: undefined
@@ -39,39 +40,53 @@ MainView {
         }
         clip: true
 
-        header: PageHeader {
-            id: header
-            title: 'SomaFM'
-            trailingActionBar.actions: [
-                Action {
-                    iconName: "reload"
-                    text: i18n.tr("Reload")
-                    onTriggered: reload()
-                }
-            ]
-        }
-
         Component.onCompleted: {
-          console.log("Component.onCompleted")
-          listView.model = channelsModel
+            pageStack.push(mainPage)
         }
 
-        ListView {
-            id: listView
+        Page {
+            id: mainPage
             anchors.fill: parent
-            spacing: units.dp(8)
-            //model: channelsModel
-            interactive: contentHeight > height
-            delegate: ChannelsDelegate {
-                onClicked: {
-                    channelImageUrl = model.channelImage
-                    streamMetaText1 = model.channelName + ": " + model.channelDj
-                    streamMetaText2 = model.channelDescription
-                    loadStation(model.songUrlFast)
+
+            header: PageHeader {
+                id: header
+                title: 'SomaFM'
+                trailingActionBar.actions: [
+                    Action {
+                        iconName: "info"
+                        text: i18n.tr("About")
+                        onTriggered: pageStack.push(Qt.resolvedUrl("pages/AboutPage.qml") )
+                    },
+                    Action {
+                        iconName: "reload"
+                        text: i18n.tr("Reload")
+                        onTriggered: reload()
+                    }
+                ]
+            }
+
+            Component.onCompleted: {
+              console.log("Component.onCompleted")
+              listView.model = channelsModel
+            }
+
+            ListView {
+                id: listView
+                anchors.fill: parent
+                spacing: units.dp(8)
+                //model: channelsModel
+                interactive: contentHeight > height
+                delegate: ChannelsDelegate {
+                    onClicked: {
+                        channelImageUrl = model.channelImage
+                        streamMetaText1 = model.channelName + ": " + model.channelDj
+                        streamMetaText2 = model.channelDescription
+                        loadStation(model.songUrlFast)
+                    }
                 }
             }
-        }
 
+        }
     }
 
     PlayerArea {
