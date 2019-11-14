@@ -8,8 +8,11 @@ import Ubuntu.Components 1.3
 
     ListItem
     {
-        width: parent.width
-        height: thumb.height
+        //width: parent.width
+        width: parent.width - units.gu(2)
+        x: units.gu(1)
+        height: thumb.height + units.gu(1)
+        anchors.bottomMargin: units.gu(1)
         id: channels
 
         Image
@@ -19,7 +22,6 @@ import Ubuntu.Components 1.3
             asynchronous: true
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.leftMargin: Theme.paddingSmall
             width: units.gu(10)
             height: width
         }
@@ -28,9 +30,9 @@ import Ubuntu.Components 1.3
         {
             anchors.top: parent.top
             anchors.right: parent.right
-            anchors.rightMargin: Theme.paddingMedium
+            anchors.rightMargin: units.gu(1)
             anchors.left: thumb.right
-            anchors.leftMargin: Theme.paddingMedium
+            anchors.leftMargin: units.gu(1)
 
             Text
             {
