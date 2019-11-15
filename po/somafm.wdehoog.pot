@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: somafm.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-14 22:37+0000\n"
+"POT-Creation-Date: 2019-11-15 22:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:28
+#: ../qml/Main.qml:25 somafm.desktop.in.h:1
+msgid "SomaFM"
+msgstr ""
+
+#: ../qml/Main.qml:34
 msgid "no title info"
 msgstr ""
 
-#: ../qml/Main.qml:30
+#: ../qml/Main.qml:36
 msgid "no publisher info"
 msgstr ""
 
-#: ../qml/Main.qml:57
+#: ../qml/Main.qml:64 ../qml/pages/AboutPage.qml:20
 msgid "About"
 msgstr ""
 
-#: ../qml/Main.qml:62
+#: ../qml/Main.qml:69
 msgid "Reload"
 msgstr ""
 
-#: ../qml/Main.qml:201
-msgid "Error"
-msgstr ""
-
-#: ../qml/pages/AboutPage.qml:12
-msgid "About SomaFM"
-msgstr ""
-
-#: ../qml/pages/AboutPage.qml:63
+#: ../qml/pages/AboutPage.qml:67
 msgid "SomaFM player for UBPorts"
 msgstr ""
 
-#: ../qml/pages/AboutPage.qml:79
+#: ../qml/pages/AboutPage.qml:83
 msgid "sources: https://github.com/wdehoog/somafm-ubports"
 msgstr ""
 
-#: ../qml/pages/AboutPage.qml:86
+#: ../qml/pages/AboutPage.qml:90
 msgid "License: BSD"
 msgstr ""
 
-#: ../qml/pages/AboutPage.qml:97
+#: ../qml/pages/AboutPage.qml:101
 msgid "Translations"
 msgstr ""
 
-#: ../qml/pages/AboutPage.qml:117
+#: ../qml/pages/AboutPage.qml:121
 msgid "Thanks to"
-msgstr ""
-
-#: somafm.desktop.in.h:1
-msgid "SomaFM"
 msgstr ""

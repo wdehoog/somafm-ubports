@@ -1,6 +1,22 @@
 {
   "template": "cmake",
-  "kill": "somafm"
+  "kill": "somafm",
+  "dependencies_target": [
+     "qtbase5-dev",
+     "qtchooser",
+     "qtdeclarative5-dev"
+   ],
+  "libraries": {
+     "ergo": {
+       "template": "cmake",
+       "build_args": [
+          "-DCLICK_MODE=on"
+       ]
+     }
+   },
+   "install_lib": [
+      "$ergo_LIB_INSTALL_DIR/lib/$ARCH_TRIPLET/*"
+   ]
 }
 
 

@@ -1,23 +1,29 @@
-//import Ergo 0.0
+import Ergo 0.0
 import QtQuick 2.7
-import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import QtMultimedia 5.9
+import QtQuick.Window 2.0
 
 import "components"
-//import "pages"
 
-MainView {
+Window {
     id: root
     objectName: 'mainView'
-    applicationName: 'somafm.wdehoog'
-    automaticOrientation: true
+    //applicationName: 'somafm.wdehoog'
+    //automaticOrientation: true
 
-    width: units.gu(45)
-    height: units.gu(75)
+    
+    //width: units.dp(1080)
+    //height: units.dp(1920)
+
+    // Use these colors for the UI.
+    //readonly property color bgColor: "#232323"
+    //readonly property color fgColor: "#efefef"
+
+    title: i18n.tr("SomaFM")
+    visible: true
 
     ChannelsModel { id: channelsModel }
 
@@ -29,7 +35,7 @@ MainView {
 
     property string streamMetaText2: audio.metaData.publisher ? audio.metaData.publisher : i18n.tr("no publisher info")
 
-    PageStack {
+    StackView {
         id: pageStack
         anchors {
             bottom: playerArea.top
@@ -41,52 +47,53 @@ MainView {
         clip: true
 
         Component.onCompleted: {
-            pageStack.push(mainPage)
+          pageStack.push(mainPage)
+        }
+    }
+
+
+    Page {
+        id: mainPage
+
+        header: PageHeader {
+            id: header
+
+            trailingActions: [
+                Action {
+                    iconName: "info"
+                    text: i18n.tr("About")
+                    onTriggered: pageStack.push(Qt.resolvedUrl("pages/AboutPage.qml") )
+                },
+                Action {
+                    iconName: "reload"
+                    text: i18n.tr("Reload")
+                    onTriggered: reload()
+                }
+            ]
+            title: "SomaFM" 
         }
 
-        Page {
-            id: mainPage
+        Component.onCompleted: {
+          console.log("Component.onCompleted")
+          listView.model = channelsModel
+        }
+
+        ListView {
+            id: listView
             anchors.fill: parent
-
-            header: PageHeader {
-                id: header
-                title: 'SomaFM'
-                trailingActionBar.actions: [
-                    Action {
-                        iconName: "info"
-                        text: i18n.tr("About")
-                        onTriggered: pageStack.push(Qt.resolvedUrl("pages/AboutPage.qml") )
-                    },
-                    Action {
-                        iconName: "reload"
-                        text: i18n.tr("Reload")
-                        onTriggered: reload()
-                    }
-                ]
-            }
-
-            Component.onCompleted: {
-              console.log("Component.onCompleted")
-              listView.model = channelsModel
-            }
-
-            ListView {
-                id: listView
-                anchors.fill: parent
-                spacing: units.dp(8)
-                //model: channelsModel
-                interactive: contentHeight > height
-                delegate: ChannelsDelegate {
-                    onClicked: {
-                        channelImageUrl = model.channelImage
-                        streamMetaText1 = model.channelName + ": " + model.channelDj
-                        streamMetaText2 = model.channelDescription
-                        loadStation(model.songUrlFast)
-                    }
+            spacing: units.dp(8)
+            //model: channelsModel
+            interactive: contentHeight > height
+            delegate: ChannelsDelegate {
+                onClicked: {
+                    channelImageUrl = model.channelImage
+                    streamMetaText1 = model.channelName + ": " + model.channelDj
+                    streamMetaText2 = model.channelDescription
+                    loadStation(model.songUrlFast)
                 }
             }
-
         }
+
     }
 
     PlayerArea {
@@ -134,26 +141,8 @@ MainView {
     }
     
     function reload() {
-        /*loadChannels("http://api.somafm.com/channels.xml", function(channels) {
-            channelsModel.xml = channels
-        })*/
         channelsModel.reload()
     }
-
-    /*function loadChannels(channelsUri, callback) {
-        var xhr = new XMLHttpRequest
-        xhr.open("GET", channelsUri)
-        xhr.setRequestHeader("Content-Type", "text/xml");
-        xhr.onreadystatechange = function() {
-            if(xhr.readyState === XMLHttpRequest.DONE) {
-                var channels = xhr.responseText
-                console.log("loadChannels() DONE length: " + channels.length)
-                console.log("Error status: " + xhr.status + ", text: " + xhr.statusText)
-                callback(channels)  
-            }
-        }
-        xhr.send();
-    }*/
 
     function loadStation(playlistUri) {
 
@@ -162,7 +151,6 @@ MainView {
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 var playlist = xhr.responseText;
-                //console.log("Playlist for stream: \n" + playlist)
                 var streamURL
                 streamURL = extractURLFromPLS(playlist)
                 console.log("URL: \n" + streamURL)
@@ -194,10 +182,10 @@ MainView {
     }
 
     function showMessageDialog(title, text) {
-        PopupUtils.open(dialog, app, {messageTitle: title, messageText: text})
+        //PopupUtils.open(dialog, app, {messageTitle: title, messageText: text})
     }
 
     function showErrorDialog(text) {
-        PopupUtils.open(dialog, app, {messageTitle: i18n.tr("Error"), messageText: text})
+        //PopupUtils.open(dialog, app, {messageTitle: i18n.tr("Error"), messageText: text})
     }
 }

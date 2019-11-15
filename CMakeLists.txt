@@ -6,6 +6,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package(Qt5Core)
 find_package(Qt5Qml)
 find_package(Qt5Quick)
+find_package(Qt5Gui REQUIRED)
+find_package(Qt5QuickControls2 REQUIRED)
+find_package(Qt5Widgets REQUIRED)
 
 # Automatically create moc files
 set(CMAKE_AUTOMOC ON)
@@ -39,7 +42,20 @@ install(DIRECTORY qml DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
 add_executable(${PROJECT_NAME} main.cpp)
-qt5_use_modules(${PROJECT_NAME} Gui Qml Quick QuickControls2)
+#qt5_use_modules(${PROJECT_NAME} Gui Qml Quick QuickControls2)
+
+target_link_libraries(${PROJECT_NAME}
+  
+  Qt5::Core
+  Qt5::Gui
+  Qt5::Qml
+  Qt5::Quick
+  Qt5::QuickControls2
+  Qt5::Widgets
+
+  ${CMAKE_THREAD_LIBS_INIT}
+)
+
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 # Translations

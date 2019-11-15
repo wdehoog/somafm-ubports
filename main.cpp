@@ -1,20 +1,20 @@
-#include <QGuiApplication>
-#include <QCoreApplication>
-#include <QUrl>
-#include <QString>
-#include <QQuickView>
+#include <QApplication>
+#include <QQmlApplicationEngine>
+#include <QQuickStyle>
+#include <QtQml/QtQml>
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication *app = new QGuiApplication(argc, (char**)argv);
-    app->setApplicationName("somafm.wdehoog");
+    QApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
+    QQuickStyle::setStyle("Ergo");
 
-    qDebug() << "Starting app from main.cpp";
+    QCoreApplication::setApplicationName("SomaFM");
 
-    QQuickView *view = new QQuickView();
-    view->setSource(QUrl(QStringLiteral("qml/Main.qml")));
-    view->setResizeMode(QQuickView::SizeRootObjectToView);
-    view->show();
+    QApplication app(argc, argv);
 
-    return app->exec();
+    QQmlApplicationEngine engine;
+    //engine.load(QUrl(QStringLiteral("qrc:///qml/Main.qml")));
+    engine.load(QStringLiteral("qml/Main.qml"));
+
+    return app.exec();
 }

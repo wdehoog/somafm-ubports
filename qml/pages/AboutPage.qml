@@ -1,16 +1,23 @@
-import QtQuick 2.4
-import Ubuntu.Components 1.3
-import Ubuntu.Components.Themes 1.3
+import Ergo 0.0
+import QtQuick 2.7
+import QtQuick.Controls 2.2
+
+import "../components"
 
 Page {
     id: aboutPage
     objectName: "AboutPage"
 
 
-    header: PageHeader {
-        id: pageHeader
-        title: i18n.tr("About SomaFM")
-        flickable: flick.flickableItem
+    header: PageHeader  {
+        id: header
+        leadingActions: [
+            Action {
+                iconName: "back"
+                onTriggered: pageStack.pop()
+            }
+        ]
+        title: i18n.tr("About") 
     }
 
     ScrollView  {
@@ -28,15 +35,12 @@ Page {
                 width: parent.width
                 height: childrenRect.height
 
-                UbuntuShape {
+                Icon {
                     id: icon
                     width: units.gu(10)
                     height: width
                     anchors.horizontalCenter: parent.horizontalCenter
-                    radius: "medium"
-                    source: Image {
-                        source: Qt.resolvedUrl("../resources/somafm-logo.svg")
-                    }
+                    source: Qt.resolvedUrl("../resources/somafm-logo.svg")
                 }
 
                 Column {

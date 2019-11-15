@@ -1,8 +1,15 @@
+import Ergo 0.0
 import QtQuick 2.4
-import Ubuntu.Components 1.3
 import QtMultimedia 5.6
+import QtQuick.Controls 2.2
 
 Column {
+    property alias audioPlaybackState: playerUI.audioPlaybackState
+
+    signal pause()
+    signal previous()
+    signal next()
+
     width: parent.width
     anchors {
         bottom: parent.bottom
@@ -19,9 +26,6 @@ Column {
      
         property int audioPlaybackState
 
-        signal pause()
-        signal previous()
-        signal next()
 
         width: parent.width - units.gu(2)
         x: units.gu(1)
@@ -63,17 +67,17 @@ Column {
         }
 
 
-        Button {
+        Icon {
             id: playerButton
             width: units.gu(4)
             height: width
             anchors.verticalCenter: parent.verticalCenter
-
-            action: Action {
-                  iconSource: audioPlaybackState == Audio.PlayingState
-                                ? Qt.resolvedUrl("../resources/pause.svg")
-                                : Qt.resolvedUrl("../resources/play.svg")
-                  onTriggered: playPause()
+            source: audioPlaybackState == Audio.PlayingState
+                        ? Qt.resolvedUrl("../resources/pause.svg")
+                        : Qt.resolvedUrl("../resources/play.svg")
+            MouseArea {
+                anchors.fill: parent
+                onClicked: playPause()
             }
         }
     }
