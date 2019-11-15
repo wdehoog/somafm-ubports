@@ -13,12 +13,12 @@ Column {
     width: parent.width
     anchors {
         bottom: parent.bottom
-        bottomMargin: units.gu(0.5)
+        bottomMargin: app.gu(0.5)
     }
 
     Rectangle {
         width: parent.width
-        height: units.gu(1)
+        height: app.gu(1)
     }
 
     Row {
@@ -27,14 +27,14 @@ Column {
         property int audioPlaybackState
 
 
-        width: parent.width - units.gu(2)
-        x: units.gu(1)
+        width: parent.width - app.gu(2)
+        x: app.gu(1)
         height: imageItem.height
 
         Icon {
             id: imageItem
             source: channelImageUrl.length > 0 ? channelImageUrl : Qt.resolvedUrl("../resources/somafm-logo.svg")
-            width: units.gu(10)
+            width: app.gu(10)
             height: width
             anchors.verticalCenter: parent.verticalCenter
         }
@@ -46,21 +46,21 @@ Column {
 
             Text {
                 id: m1
-                x: units.gu(1)
-                width: parent.width - units.gu(1)
+                x: app.gu(1)
+                width: parent.width - app.gu(1)
                 font.bold: true
-                color: UbuntuColors.orange
+                color: app.text1color
                 wrapMode: Text.Wrap
                 text: streamMetaText1
             }
             Text {
                 id: m2
-                x: units.gu(1)
-                width: parent.width - units.gu(1)
+                x: app.gu(1)
+                width: parent.width - app.gu(1)
                 anchors.right: parent.right
                 wrapMode: Text.Wrap
                 font.bold: true
-                color: UbuntuColors.darkGrey
+                color: app.text2color
                 text: streamMetaText2
             }
 
@@ -69,7 +69,7 @@ Column {
 
         Icon {
             id: playerButton
-            width: units.gu(4)
+            width: app.gu(4)
             height: width
             anchors.verticalCenter: parent.verticalCenter
             source: audioPlaybackState == Audio.PlayingState

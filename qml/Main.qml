@@ -9,7 +9,7 @@ import QtQuick.Window 2.0
 import "components"
 
 Window {
-    id: root
+    id: app
     objectName: 'mainView'
     //applicationName: 'somafm.wdehoog'
     //automaticOrientation: true
@@ -21,6 +21,9 @@ Window {
     // Use these colors for the UI.
     //readonly property color bgColor: "#232323"
     //readonly property color fgColor: "#efefef"
+
+    property color text1color: "#E95420" // Ubuntu orange
+    property color text2color: "#333333" // some dark grey 
 
     title: i18n.tr("SomaFM")
     visible: true
@@ -85,11 +88,14 @@ Window {
             //model: channelsModel
             interactive: contentHeight > height
             delegate: ChannelsDelegate {
-                onClicked: {
-                    channelImageUrl = model.channelImage
-                    streamMetaText1 = model.channelName + ": " + model.channelDj
-                    streamMetaText2 = model.channelDescription
-                    loadStation(model.songUrlFast)
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        channelImageUrl = model.channelImage
+                        streamMetaText1 = model.channelName + ": " + model.channelDj
+                        streamMetaText2 = model.channelDescription
+                        loadStation(model.songUrlFast)
+                    }
                 }
             }
         }
@@ -187,5 +193,10 @@ Window {
 
     function showErrorDialog(text) {
         //PopupUtils.open(dialog, app, {messageTitle: i18n.tr("Error"), messageText: text})
+    }
+
+    // trial and error
+    function gu(value) {
+        return units.dp(16) * value
     }
 }

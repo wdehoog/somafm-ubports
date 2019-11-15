@@ -20,7 +20,7 @@ Rectangle  {
 
         Label { 
             text: title
-            font.pixelSize: FontUtils.sizeToPixels("large")
+            font.pixelSize: 12
             font.bold: true
             anchors.verticalCenter: parent.verticalCenter
         }
