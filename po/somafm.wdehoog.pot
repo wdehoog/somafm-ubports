@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: somafm.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 22:53+0000\n"
+"POT-Creation-Date: 2019-11-15 23:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:28 somafm.desktop.in.h:1
+#: ../qml/Main.qml:33 somafm.desktop.in.h:1
 msgid "SomaFM"
 msgstr ""
 
-#: ../qml/Main.qml:37
+#: ../qml/Main.qml:42
 msgid "no title info"
 msgstr ""
 
-#: ../qml/Main.qml:39
+#: ../qml/Main.qml:44
 msgid "no publisher info"
 msgstr ""
 
-#: ../qml/Main.qml:67 ../qml/pages/AboutPage.qml:20
+#: ../qml/Main.qml:72 ../qml/pages/AboutPage.qml:20
 msgid "About"
 msgstr ""
 
-#: ../qml/Main.qml:72
+#: ../qml/Main.qml:77
 msgid "Reload"
 msgstr ""
 
@@ -53,6 +53,6 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-#: ../qml/pages/AboutPage.qml:121
+#: ../qml/pages/AboutPage.qml:122
 msgid "Thanks to"
 msgstr ""

@@ -26,10 +26,10 @@ Page {
 
         Column {
             id: column
-            width: flick.width - 2*units.gu(1)
-            x: units.gu(1)
+            width: flick.width - 2*app.gu(1)
+            x: app.gu(1)
             y: x
-            spacing: units.gu(5)
+            spacing: app.gu(5)
 
             Item {
                 width: parent.width
@@ -37,7 +37,7 @@ Page {
 
                 Icon {
                     id: icon
-                    width: units.gu(10)
+                    width: app.gu(10)
                     height: width
                     anchors.horizontalCenter: parent.horizontalCenter
                     source: Qt.resolvedUrl("../resources/somafm-logo.svg")
@@ -57,13 +57,13 @@ Page {
 
                     Label {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize:FontUtils.sizeToPixels("large")
+                        font.pixelSize: app.fontPixelSizeLarge
                         text: "SomaFM 0.1"
                     }
 
                     Label {
                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize:FontUtils.sizeToPixels("large")
+                        font.pixelSize: app.fontPixelSizeLarge
                         text: i18n.tr("SomaFM player for UBPorts")
                         width: parent.width
                         wrapMode: Text.WordWrap
@@ -72,21 +72,21 @@ Page {
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize:FontUtils.sizeToPixels("small")
+                        font.pixelSize: app.fontPixelSizeSmall
                         text: "Copyright (C) 2019 Willem-Jan de Hoog"
                         width: parent.width
                     }
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize:FontUtils.sizeToPixels("medium")
+                        font.pixelSize: app.fontPixelSizeMedium
                         text: i18n.tr("sources: https://github.com/wdehoog/somafm-ubports")
                         width: parent.width
                     }
                     Label {
                         horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
                         anchors.horizontalCenter: parent.horizontalCenter
-                        font.pixelSize:FontUtils.sizeToPixels("medium")
+                        font.pixelSize: app.fontPixelSizeMedium
                         text: i18n.tr("License: BSD")
                         width: parent.width
                     }
@@ -99,16 +99,17 @@ Page {
 
                 Label {
                     text: i18n.tr("Translations")
+                    font.pixelSize: app.fontPixelSizeLarge
                 }
 
                 Label {
                     anchors {
                         left: parent.left
-                        leftMargin: units.gu(2)
+                        leftMargin: app.gu(2)
                         right: parent.right
-                        rightMargin: units.gu(2)
+                        rightMargin: app.gu(2)
                     }
-                    font.pixelSize:FontUtils.sizeToPixels("large")
+                    font.pixelSize: app.fontPixelSizeLarge
                     wrapMode: Text.WordWrap
                     text: ""
                     }
@@ -119,16 +120,17 @@ Page {
 
                 Label {
                     text: i18n.tr("Thanks to")
+                    font.pixelSize: app.fontPixelSizeLarge
                 }
 
                 Label {
                     anchors {
                         left: parent.left
-                        leftMargin: units.gu(2)
+                        leftMargin: app.gu(2)
                         right: parent.right
-                        rightMargin: units.gu(2)
+                        rightMargin: app.gu(2)
                     }
-                    font.pixelSize:FontUtils.sizeToPixels("large")
+                    font.pixelSize: app.fontPixelSizeLarge
                     wrapMode: Text.WordWrap
                     text:
 "SomaFM: www.somafm.com

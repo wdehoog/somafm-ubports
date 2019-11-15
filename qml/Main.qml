@@ -24,6 +24,11 @@ Window {
 
     property color text1color: "#E95420" // Ubuntu orange
     property color text2color: "#333333" // some dark grey 
+    property color text3color: "#aea79f" // some light grey 
+
+    property int fontPixelSizeLarge: units.dp(14)
+    property int fontPixelSizeMedium: units.dp(12)
+    property int fontPixelSizeSmall: units.dp(10)
 
     title: i18n.tr("SomaFM")
     visible: true
@@ -195,8 +200,8 @@ Window {
         //PopupUtils.open(dialog, app, {messageTitle: i18n.tr("Error"), messageText: text})
     }
 
-    // trial and error
+    // trial and error and interweb
     function gu(value) {
-        return units.dp(16) * value
+        return units.dp(8) * value
     }
 }

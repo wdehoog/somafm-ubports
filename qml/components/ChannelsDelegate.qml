@@ -32,7 +32,9 @@ AdaptiveListItem {
         {
             id: channelNameLabel
             text: channelName;
+            color: app.text1color
             font.weight: Font.Bold;
+            font.pixelSize: app.fontPixelSizeLarge
             anchors.left: parent.left
             anchors.right: parent.right
         }
@@ -41,8 +43,10 @@ AdaptiveListItem {
         {
             id: channelDescriptionLabel
             text: channelDescription;
+            color: app.text2color
             width: parent.width
             font.weight: Font.Light;
+            font.pixelSize: app.fontPixelSizeLarge
             maximumLineCount: 2
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             anchors.left: parent.left
@@ -53,7 +57,9 @@ AdaptiveListItem {
         {
             id: channelSongLabel
             text: song;
+            color: app.text3color
             font.weight: Font.Bold;
+            font.pixelSize: app.fontPixelSizeMedium
             maximumLineCount: 1
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             anchors.left: parent.left

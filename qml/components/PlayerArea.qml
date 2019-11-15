@@ -16,9 +16,14 @@ Column {
         bottomMargin: app.gu(0.5)
     }
 
+    Rectangle { 
+        width: parent.width
+        height: 1
+        color: "grey"
+    }
     Rectangle {
         width: parent.width
-        height: app.gu(1)
+        height: app.gu(1) - 1
     }
 
     Row {
@@ -49,6 +54,7 @@ Column {
                 x: app.gu(1)
                 width: parent.width - app.gu(1)
                 font.bold: true
+                font.pixelSize: app.fontPixelSizeLarge
                 color: app.text1color
                 wrapMode: Text.Wrap
                 text: streamMetaText1
@@ -59,6 +65,7 @@ Column {
                 width: parent.width - app.gu(1)
                 anchors.right: parent.right
                 wrapMode: Text.Wrap
+                font.pixelSize: app.fontPixelSizeLarge
                 font.bold: true
                 color: app.text2color
                 text: streamMetaText2
