@@ -1,0 +1,7 @@
+module Ergo
+plugin @PLUGIN_NAME@
+
+Action 0.0 Action.qml
+AdaptiveListItem 0.0 AdaptiveListItem.qml
+AdaptiveToolbar 0.0 AdaptiveToolbar.qml
+Icon 0.0 Icon.qml
