@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: somafm.wdehoog\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 23:27+0000\n"
+"POT-Creation-Date: 2019-11-16 12:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/components/MessageDialog.qml:88
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/components/MessageDialog.qml:98
+msgid "OK"
+msgstr ""
 
 #: ../qml/Main.qml:33 somafm.desktop.in.h:1
 msgid "SomaFM"
@@ -29,12 +37,16 @@ msgstr ""
 msgid "no publisher info"
 msgstr ""
 
-#: ../qml/Main.qml:72 ../qml/pages/AboutPage.qml:20
+#: ../qml/Main.qml:73 ../qml/pages/AboutPage.qml:20
 msgid "About"
 msgstr ""
 
-#: ../qml/Main.qml:77
+#: ../qml/Main.qml:78
 msgid "Reload"
+msgstr ""
+
+#: ../qml/Main.qml:207
+msgid "Error"
 msgstr ""
 
 #: ../qml/pages/AboutPage.qml:67
@@ -47,10 +59,6 @@ msgstr ""
 
 #: ../qml/pages/AboutPage.qml:90
 msgid "License: BSD"
-msgstr ""
-
-#: ../qml/pages/AboutPage.qml:101
-msgid "Translations"
 msgstr ""
 
 #: ../qml/pages/AboutPage.qml:122

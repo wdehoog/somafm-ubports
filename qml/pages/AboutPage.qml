@@ -94,7 +94,7 @@ Page {
 
             }
 
-            Column {
+            /*Column {
                 width: parent.width
 
                 Label {
@@ -113,7 +113,7 @@ Page {
                     wrapMode: Text.WordWrap
                     text: ""
                     }
-            }
+            }*/
 
             Column {
                 width: parent.width
@@ -134,6 +134,7 @@ Page {
                     wrapMode: Text.WordWrap
                     text:
 "SomaFM: www.somafm.com
+Rodney: https://gitlab.com/dobey/ergo
 Andrea Grandi: sailsoma
 UBPorts Team: UBPorts
 https://feathericons.com/: play icons

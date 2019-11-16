@@ -55,7 +55,8 @@ Window {
         clip: true
 
         Component.onCompleted: {
-          pageStack.push(mainPage)
+            pageStack.push(mainPage)
+            //showMessageDialog("Test", "Hello")
         }
     }
 
@@ -192,12 +193,18 @@ Window {
       return "";
     }
 
+    MessageDialog {
+        id: msgDialog
+    }
+
     function showMessageDialog(title, text) {
-        //PopupUtils.open(dialog, app, {messageTitle: title, messageText: text})
+        msgDialog.msgTitle = title
+        msgDialog.msgText = text
+        msgDialog.open()
     }
 
     function showErrorDialog(text) {
-        //PopupUtils.open(dialog, app, {messageTitle: i18n.tr("Error"), messageText: text})
+        showMessageDialog(i18n.tr("Error"), text)
     }
 
     // trial and error and interweb
