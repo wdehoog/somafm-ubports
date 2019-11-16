@@ -14,9 +14,9 @@ Window {
     //applicationName: 'somafm.wdehoog'
     //automaticOrientation: true
 
-    
-    //width: units.dp(1080)
-    //height: units.dp(1920)
+    // for desktop testing
+    width: units.dp(480)
+    height: units.dp(853)
 
     // Use these colors for the UI.
     //readonly property color bgColor: "#232323"
@@ -193,13 +193,14 @@ Window {
       return "";
     }
 
-    MessageDialog {
-        id: msgDialog
-    }
+    property var msgDialog
 
     function showMessageDialog(title, text) {
+        var component = Qt.createComponent("components/MessageDialog.qml");
+        msgDialog = component.createObject(app, {});
         msgDialog.msgTitle = title
         msgDialog.msgText = text
+        msgDialog.accepted.connect(function() { msgDialog.destroy() })
         msgDialog.open()
     }
 
