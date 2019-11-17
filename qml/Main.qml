@@ -94,14 +94,12 @@ Window {
             //model: channelsModel
             interactive: contentHeight > height
             delegate: ChannelsDelegate {
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        channelImageUrl = model.channelImage
-                        streamMetaText1 = model.channelName + ": " + model.channelDj
-                        streamMetaText2 = model.channelDescription
-                        loadStation(model.songUrlFast)
-                    }
+                onClicked: {
+                    console.log("ChannelsDelegate.onClicked")
+                    channelImageUrl = model.channelImage
+                    streamMetaText1 = model.channelName + ": " + model.channelDj
+                    streamMetaText2 = model.channelDescription
+                    loadStation(model.songUrlFast)
                 }
             }
         }
@@ -176,7 +174,7 @@ Window {
                 }
             }
         }
-        xhr.send();
+        xhr.send()
     }
 
     function startsWith(str, start) {
@@ -184,20 +182,18 @@ Window {
     }
 
     function extractURLFromPLS(text) {
-      var lines = text.split('\n');
+      var lines = text.split('\n')
       for(var i = 0;i < lines.length;i++) {
         var match = lines[i].match("File[^=]+\s*=\s*(http.*)\s*")
           if(match && match.length>=2)
-            return match[1];
+            return match[1]
       }
-      return "";
+      return ""
     }
 
-    property var msgDialog
-
     function showMessageDialog(title, text) {
-        var component = Qt.createComponent("components/MessageDialog.qml");
-        msgDialog = component.createObject(app, {});
+        var component = Qt.createComponent("components/MessageDialog.qml")
+        var msgDialog = component.createObject(app, {})
         msgDialog.msgTitle = title
         msgDialog.msgText = text
         msgDialog.accepted.connect(function() { msgDialog.destroy() })

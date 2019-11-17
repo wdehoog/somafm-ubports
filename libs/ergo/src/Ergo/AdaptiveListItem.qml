@@ -90,26 +90,31 @@ Item {
         }
     }
 
+    signal clicked(var mouse)
+
     /* We need to handle mouse events for popping up the "menu" on the list
      * item, but pass through regular clicks.
      */
-    /*MouseArea {
+    MouseArea {
         anchors.fill: parent
-        propagateComposedEvents: true
+        //propagateComposedEvents: true
         acceptedButtons: Qt.LeftButton | Qt.RightButton
 
         onPressAndHold: {
+            console.log("AdaptiveListItem.onPressAndHold")
             aliRoot.openActionMenu();
         }
 
         onClicked: {
+            console.log("AdaptiveListItem.onClicked")
             if (mouse.button == Qt.RightButton) {
                 aliRoot.openActionMenu();
                 return;
             }
             mouse.accepted = false;
+            aliRoot.clicked(mouse)
         }
-    }*/
+    }
 
     /* We use a Component here for containg the popup, to prevent QML from
      * spending time to render the items until we need to actually open the
